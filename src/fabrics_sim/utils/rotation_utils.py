@@ -123,17 +123,18 @@ def matrix_to_quaternion(matrix):
 @wp.kernel
 def quaternion_to_matrix_kernel(
     # inputs
-    quaternion: wp.array(dtype=wp.Float, ndim=2),
+    quaternion: wp.array(dtype=wp.float32, ndim=2),
     # outputs
-    matrix: wp.array(dtype=wp.Float, ndim=3)):
+    matrix: wp.array(dtype=wp.float32, ndim=3)):
 
     batch_index = wp.tid()
 
-    quat = wp.quaternion(quaternion[batch_index, 1],
-                         quaternion[batch_index, 2],
-                         quaternion[batch_index, 3],
-                         quaternion[batch_index, 0],
-                         dtype=wp.Float)
+    # Input layout is (w, x, y, z); wp.quat is (x, y, z, w).
+    # NOTE: warp >= 1.x has no generic `wp.quaternion(..., dtype=)` constructor; use wp.quat.
+    quat = wp.quat(quaternion[batch_index, 1],
+                   quaternion[batch_index, 2],
+                   quaternion[batch_index, 3],
+                   quaternion[batch_index, 0])
 
     mat = wp.quat_to_matrix(quat)
 
