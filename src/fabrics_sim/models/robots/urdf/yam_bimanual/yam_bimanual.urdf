@@ -1,0 +1,2519 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="yam_bimanual">
+  <link name="world">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <link name="L_base">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_base_fixed" type="fixed">
+    <origin xyz="0.000000 0.220000 0.400000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="world" />
+    <child link="L_base" />
+  </joint>
+  <link name="L_link_1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint1" type="revolute">
+    <origin xyz="0.000000 0.000000 0.063100" rpy="0.000000 -0.000000 1.570796" />
+    <parent link="L_base" />
+    <child link="L_link_1" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-2.617990" upper="3.054330" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint2" type="revolute">
+    <origin xyz="0.000025 -0.020000 0.040900" rpy="1.570796 -0.000000 1.570796" />
+    <parent link="L_link_1" />
+    <child link="L_link_2" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="0.000000" upper="3.665190" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_2_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere0_joint" type="fixed">
+    <origin xyz="0.020000 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere0" />
+  </joint>
+  <link name="L_link_2_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere1_joint" type="fixed">
+    <origin xyz="0.056667 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere1" />
+  </joint>
+  <link name="L_link_2_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere2_joint" type="fixed">
+    <origin xyz="0.093333 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere2" />
+  </joint>
+  <link name="L_link_2_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere3_joint" type="fixed">
+    <origin xyz="0.130000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere3" />
+  </joint>
+  <link name="L_link_2_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere4_joint" type="fixed">
+    <origin xyz="0.166667 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere4" />
+  </joint>
+  <link name="L_link_2_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere5_joint" type="fixed">
+    <origin xyz="0.203333 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere5" />
+  </joint>
+  <link name="L_link_2_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_2_sphere6_joint" type="fixed">
+    <origin xyz="0.240000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_2_sphere6" />
+  </joint>
+  <link name="L_link_3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint3" type="revolute">
+    <origin xyz="0.264000 0.000000 0.000000" rpy="3.141593 -0.000000 0.000000" />
+    <parent link="L_link_2" />
+    <child link="L_link_3" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="0.000000" upper="3.665190" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_3_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere0_joint" type="fixed">
+    <origin xyz="-0.260000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere0" />
+  </joint>
+  <link name="L_link_3_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere1_joint" type="fixed">
+    <origin xyz="-0.220000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere1" />
+  </joint>
+  <link name="L_link_3_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere2_joint" type="fixed">
+    <origin xyz="-0.180000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere2" />
+  </joint>
+  <link name="L_link_3_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere3_joint" type="fixed">
+    <origin xyz="-0.140000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere3" />
+  </joint>
+  <link name="L_link_3_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere4_joint" type="fixed">
+    <origin xyz="-0.100000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere4" />
+  </joint>
+  <link name="L_link_3_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere5_joint" type="fixed">
+    <origin xyz="-0.060000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere5" />
+  </joint>
+  <link name="L_link_3_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_3_sphere6_joint" type="fixed">
+    <origin xyz="-0.020000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_3_sphere6" />
+  </joint>
+  <link name="L_link_4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint4" type="revolute">
+    <origin xyz="-0.245000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_3" />
+    <child link="L_link_4" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570800" upper="1.570800" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_4_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_4_sphere0_joint" type="fixed">
+    <origin xyz="-0.073000 -0.045000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_4" />
+    <child link="L_link_4_sphere0" />
+  </joint>
+  <link name="L_link_4_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_4_sphere1_joint" type="fixed">
+    <origin xyz="-0.073000 -0.075000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_4" />
+    <child link="L_link_4_sphere1" />
+  </joint>
+  <link name="L_link_5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint5" type="revolute">
+    <origin xyz="-0.074000 -0.039500 0.000025" rpy="-1.570796 1.570796 0.000000" />
+    <parent link="L_link_4" />
+    <child link="L_link_5" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570800" upper="1.570800" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_5_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_5_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 0.040000 0.039500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_5" />
+    <child link="L_link_5_sphere0" />
+  </joint>
+  <link name="L_link_5_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_5_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 0.010000 0.039500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_5" />
+    <child link="L_link_5_sphere1" />
+  </joint>
+  <link name="L_link_6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_joint6" type="revolute">
+    <origin xyz="0.000000 0.035300 0.039500" rpy="-1.570796 0.000000 0.000000" />
+    <parent link="L_link_5" />
+    <child link="L_link_6" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-2.094400" upper="2.094400" effort="30" velocity="10" />
+  </joint>
+  <link name="L_link_6_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere0_joint" type="fixed">
+    <origin xyz="-0.035000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere0" />
+  </joint>
+  <link name="L_link_6_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere1_joint" type="fixed">
+    <origin xyz="-0.023333 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere1" />
+  </joint>
+  <link name="L_link_6_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere2_joint" type="fixed">
+    <origin xyz="-0.011667 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere2" />
+  </joint>
+  <link name="L_link_6_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere3_joint" type="fixed">
+    <origin xyz="0.000000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere3" />
+  </joint>
+  <link name="L_link_6_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere4_joint" type="fixed">
+    <origin xyz="0.011667 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere4" />
+  </joint>
+  <link name="L_link_6_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere5_joint" type="fixed">
+    <origin xyz="0.023333 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere5" />
+  </joint>
+  <link name="L_link_6_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere6_joint" type="fixed">
+    <origin xyz="0.035000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere6" />
+  </joint>
+  <link name="L_link_6_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.025000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere7" />
+  </joint>
+  <link name="L_link_6_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.035000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere8" />
+  </joint>
+  <link name="L_link_6_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere9_joint" type="fixed">
+    <origin xyz="-0.035000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere9" />
+  </joint>
+  <link name="L_link_6_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere10_joint" type="fixed">
+    <origin xyz="-0.023333 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere10" />
+  </joint>
+  <link name="L_link_6_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere11_joint" type="fixed">
+    <origin xyz="-0.011667 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere11" />
+  </joint>
+  <link name="L_link_6_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere12" />
+  </joint>
+  <link name="L_link_6_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere13_joint" type="fixed">
+    <origin xyz="0.011667 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere13" />
+  </joint>
+  <link name="L_link_6_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere14_joint" type="fixed">
+    <origin xyz="0.023333 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere14" />
+  </joint>
+  <link name="L_link_6_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_link_6_sphere15_joint" type="fixed">
+    <origin xyz="0.035000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_6_sphere15" />
+  </joint>
+  <link name="L_tcp">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_joint" type="fixed">
+    <origin xyz="0.000000 -0.044000 0.143500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_tcp" />
+  </joint>
+  <link name="L_tcp_x">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_x_joint" type="fixed">
+    <origin xyz="0.250000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_x" />
+  </joint>
+  <link name="L_tcp_x_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_x_neg_joint" type="fixed">
+    <origin xyz="-0.250000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_x_neg" />
+  </joint>
+  <link name="L_tcp_y">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_y_joint" type="fixed">
+    <origin xyz="0.000000 0.250000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_y" />
+  </joint>
+  <link name="L_tcp_y_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_y_neg_joint" type="fixed">
+    <origin xyz="0.000000 -0.250000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_y_neg" />
+  </joint>
+  <link name="L_tcp_z">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_z_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.250000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_z" />
+  </joint>
+  <link name="L_tcp_z_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_tcp_z_neg_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 -0.250000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_tcp" />
+    <child link="L_tcp_z_neg" />
+  </joint>
+  <link name="L_link_left_finger">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_left_finger_fixed" type="fixed">
+    <origin xyz="-0.007000 0.039200 0.060500" rpy="0.000000 1.570796 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_left_finger" />
+  </joint>
+  <link name="L_lf_rot">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_fixed" type="fixed">
+    <origin xyz="0.000000 -0.039200 0.037000" rpy="-1.570796 -0.000000 1.570796" />
+    <parent link="L_link_left_finger" />
+    <child link="L_lf_rot" />
+  </joint>
+  <link name="L_lf_rot_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere0_joint" type="fixed">
+    <origin xyz="-0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere0" />
+  </joint>
+  <link name="L_lf_rot_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere1_joint" type="fixed">
+    <origin xyz="-0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere1" />
+  </joint>
+  <link name="L_lf_rot_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere2_joint" type="fixed">
+    <origin xyz="-0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere2" />
+  </joint>
+  <link name="L_lf_rot_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere3_joint" type="fixed">
+    <origin xyz="0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere3" />
+  </joint>
+  <link name="L_lf_rot_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere4_joint" type="fixed">
+    <origin xyz="0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere4" />
+  </joint>
+  <link name="L_lf_rot_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere5_joint" type="fixed">
+    <origin xyz="0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere5" />
+  </joint>
+  <link name="L_lf_rot_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere6_joint" type="fixed">
+    <origin xyz="-0.033793 -0.010000 0.046483" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere6" />
+  </joint>
+  <link name="L_lf_rot_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere7_joint" type="fixed">
+    <origin xyz="-0.026897 -0.010000 0.039241" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere7" />
+  </joint>
+  <link name="L_lf_rot_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere8_joint" type="fixed">
+    <origin xyz="-0.020000 -0.010000 0.032000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere8" />
+  </joint>
+  <link name="L_lf_rot_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_rot_sphere9_joint" type="fixed">
+    <origin xyz="-0.013103 -0.010000 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_rot_sphere9" />
+  </joint>
+  <link name="L_lf_down">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_fixed" type="fixed">
+    <origin xyz="-0.044000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_rot" />
+    <child link="L_lf_down" />
+  </joint>
+  <link name="L_lf_down_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 -0.021980 0.002198" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere0" />
+  </joint>
+  <link name="L_lf_down_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere1" />
+  </joint>
+  <link name="L_lf_down_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere2_joint" type="fixed">
+    <origin xyz="0.000000 -0.018020 0.021802" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere2" />
+  </joint>
+  <link name="L_lf_down_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere3_joint" type="fixed">
+    <origin xyz="0.005000 -0.015692 0.035938" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere3" />
+  </joint>
+  <link name="L_lf_down_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere4_joint" type="fixed">
+    <origin xyz="0.005000 -0.012308 0.044062" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere4" />
+  </joint>
+  <link name="L_lf_down_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere5_joint" type="fixed">
+    <origin xyz="0.005000 -0.008923 0.052185" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere5" />
+  </joint>
+  <link name="L_lf_down_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere6_joint" type="fixed">
+    <origin xyz="0.005000 -0.005538 0.060308" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere6" />
+  </joint>
+  <link name="L_lf_down_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.006000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere7" />
+  </joint>
+  <link name="L_lf_down_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.016000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere8" />
+  </joint>
+  <link name="L_lf_down_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere9_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.026000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere9" />
+  </joint>
+  <link name="L_lf_down_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere10_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.036000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere10" />
+  </joint>
+  <link name="L_lf_down_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere11_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.076000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere11" />
+  </joint>
+  <link name="L_lf_down_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.086000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere12" />
+  </joint>
+  <link name="L_lf_down_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere13_joint" type="fixed">
+    <origin xyz="0.020276 -0.002400 0.060060" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere13" />
+  </joint>
+  <link name="L_lf_down_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere14_joint" type="fixed">
+    <origin xyz="0.027000 -0.002400 0.053000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere14" />
+  </joint>
+  <link name="L_lf_down_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere15_joint" type="fixed">
+    <origin xyz="0.033724 -0.002400 0.045940" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere15" />
+  </joint>
+  <link name="L_lf_down_sphere16">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere16_joint" type="fixed">
+    <origin xyz="0.040448 -0.002400 0.038879" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere16" />
+  </joint>
+  <link name="L_lf_down_sphere17">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere17_joint" type="fixed">
+    <origin xyz="0.047172 -0.002400 0.031819" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere17" />
+  </joint>
+  <link name="L_lf_down_sphere18">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_lf_down_sphere18_joint" type="fixed">
+    <origin xyz="0.053897 -0.002400 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_lf_down" />
+    <child link="L_lf_down_sphere18" />
+  </joint>
+  <link name="L_link_right_finger">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_right_finger_fixed" type="fixed">
+    <origin xyz="0.007000 -0.039200 0.060500" rpy="0.000000 1.570796 0.000000" />
+    <parent link="L_link_6" />
+    <child link="L_link_right_finger" />
+  </joint>
+  <link name="L_rf_rot">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_fixed" type="fixed">
+    <origin xyz="0.000000 0.039200 -0.037000" rpy="1.570796 -0.000000 -1.570796" />
+    <parent link="L_link_right_finger" />
+    <child link="L_rf_rot" />
+  </joint>
+  <link name="L_rf_rot_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere0_joint" type="fixed">
+    <origin xyz="-0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere0" />
+  </joint>
+  <link name="L_rf_rot_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere1_joint" type="fixed">
+    <origin xyz="-0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere1" />
+  </joint>
+  <link name="L_rf_rot_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere2_joint" type="fixed">
+    <origin xyz="-0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere2" />
+  </joint>
+  <link name="L_rf_rot_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere3_joint" type="fixed">
+    <origin xyz="0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere3" />
+  </joint>
+  <link name="L_rf_rot_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere4_joint" type="fixed">
+    <origin xyz="0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere4" />
+  </joint>
+  <link name="L_rf_rot_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere5_joint" type="fixed">
+    <origin xyz="0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere5" />
+  </joint>
+  <link name="L_rf_rot_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere6_joint" type="fixed">
+    <origin xyz="0.033793 -0.010000 0.046483" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere6" />
+  </joint>
+  <link name="L_rf_rot_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere7_joint" type="fixed">
+    <origin xyz="0.026897 -0.010000 0.039241" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere7" />
+  </joint>
+  <link name="L_rf_rot_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere8_joint" type="fixed">
+    <origin xyz="0.020000 -0.010000 0.032000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere8" />
+  </joint>
+  <link name="L_rf_rot_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_rot_sphere9_joint" type="fixed">
+    <origin xyz="0.013103 -0.010000 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_rot_sphere9" />
+  </joint>
+  <link name="L_rf_down">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_fixed" type="fixed">
+    <origin xyz="0.044000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_rot" />
+    <child link="L_rf_down" />
+  </joint>
+  <link name="L_rf_down_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 -0.021980 0.002198" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere0" />
+  </joint>
+  <link name="L_rf_down_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere1" />
+  </joint>
+  <link name="L_rf_down_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere2_joint" type="fixed">
+    <origin xyz="0.000000 -0.018020 0.021802" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere2" />
+  </joint>
+  <link name="L_rf_down_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere3_joint" type="fixed">
+    <origin xyz="0.005000 -0.015692 0.035938" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere3" />
+  </joint>
+  <link name="L_rf_down_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere4_joint" type="fixed">
+    <origin xyz="0.005000 -0.012308 0.044062" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere4" />
+  </joint>
+  <link name="L_rf_down_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere5_joint" type="fixed">
+    <origin xyz="0.005000 -0.008923 0.052185" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere5" />
+  </joint>
+  <link name="L_rf_down_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere6_joint" type="fixed">
+    <origin xyz="0.005000 -0.005538 0.060308" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere6" />
+  </joint>
+  <link name="L_rf_down_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.006000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere7" />
+  </joint>
+  <link name="L_rf_down_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.016000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere8" />
+  </joint>
+  <link name="L_rf_down_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere9_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.026000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere9" />
+  </joint>
+  <link name="L_rf_down_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere10_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.036000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere10" />
+  </joint>
+  <link name="L_rf_down_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere11_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.076000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere11" />
+  </joint>
+  <link name="L_rf_down_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.086000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere12" />
+  </joint>
+  <link name="L_rf_down_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere13_joint" type="fixed">
+    <origin xyz="-0.013552 -0.002400 0.067121" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere13" />
+  </joint>
+  <link name="L_rf_down_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere14_joint" type="fixed">
+    <origin xyz="-0.020276 -0.002400 0.060060" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere14" />
+  </joint>
+  <link name="L_rf_down_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere15_joint" type="fixed">
+    <origin xyz="-0.027000 -0.002400 0.053000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere15" />
+  </joint>
+  <link name="L_rf_down_sphere16">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere16_joint" type="fixed">
+    <origin xyz="-0.033724 -0.002400 0.045940" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere16" />
+  </joint>
+  <link name="L_rf_down_sphere17">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere17_joint" type="fixed">
+    <origin xyz="-0.040448 -0.002400 0.038879" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere17" />
+  </joint>
+  <link name="L_rf_down_sphere18">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere18_joint" type="fixed">
+    <origin xyz="-0.047172 -0.002400 0.031819" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere18" />
+  </joint>
+  <link name="L_rf_down_sphere19">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="L_rf_down_sphere19_joint" type="fixed">
+    <origin xyz="-0.053897 -0.002400 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="L_rf_down" />
+    <child link="L_rf_down_sphere19" />
+  </joint>
+  <link name="R_base">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_base_fixed" type="fixed">
+    <origin xyz="0.000000 -0.220000 0.400000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="world" />
+    <child link="R_base" />
+  </joint>
+  <link name="R_link_1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint1" type="revolute">
+    <origin xyz="0.000000 0.000000 0.063100" rpy="0.000000 -0.000000 1.570796" />
+    <parent link="R_base" />
+    <child link="R_link_1" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-2.617990" upper="3.054330" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint2" type="revolute">
+    <origin xyz="0.000025 -0.020000 0.040900" rpy="1.570796 -0.000000 1.570796" />
+    <parent link="R_link_1" />
+    <child link="R_link_2" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="0.000000" upper="3.665190" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_2_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere0_joint" type="fixed">
+    <origin xyz="0.020000 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere0" />
+  </joint>
+  <link name="R_link_2_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere1_joint" type="fixed">
+    <origin xyz="0.056667 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere1" />
+  </joint>
+  <link name="R_link_2_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere2_joint" type="fixed">
+    <origin xyz="0.093333 0.000000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere2" />
+  </joint>
+  <link name="R_link_2_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere3_joint" type="fixed">
+    <origin xyz="0.130000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere3" />
+  </joint>
+  <link name="R_link_2_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere4_joint" type="fixed">
+    <origin xyz="0.166667 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere4" />
+  </joint>
+  <link name="R_link_2_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere5_joint" type="fixed">
+    <origin xyz="0.203333 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere5" />
+  </joint>
+  <link name="R_link_2_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_2_sphere6_joint" type="fixed">
+    <origin xyz="0.240000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_2_sphere6" />
+  </joint>
+  <link name="R_link_3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint3" type="revolute">
+    <origin xyz="0.264000 0.000000 0.000000" rpy="3.141593 -0.000000 0.000000" />
+    <parent link="R_link_2" />
+    <child link="R_link_3" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="0.000000" upper="3.665190" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_3_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere0_joint" type="fixed">
+    <origin xyz="-0.260000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere0" />
+  </joint>
+  <link name="R_link_3_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere1_joint" type="fixed">
+    <origin xyz="-0.220000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere1" />
+  </joint>
+  <link name="R_link_3_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere2_joint" type="fixed">
+    <origin xyz="-0.180000 -0.060000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere2" />
+  </joint>
+  <link name="R_link_3_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere3_joint" type="fixed">
+    <origin xyz="-0.140000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere3" />
+  </joint>
+  <link name="R_link_3_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere4_joint" type="fixed">
+    <origin xyz="-0.100000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere4" />
+  </joint>
+  <link name="R_link_3_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere5_joint" type="fixed">
+    <origin xyz="-0.060000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere5" />
+  </joint>
+  <link name="R_link_3_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_3_sphere6_joint" type="fixed">
+    <origin xyz="-0.020000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_3_sphere6" />
+  </joint>
+  <link name="R_link_4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint4" type="revolute">
+    <origin xyz="-0.245000 -0.060000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_3" />
+    <child link="R_link_4" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570800" upper="1.570800" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_4_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_4_sphere0_joint" type="fixed">
+    <origin xyz="-0.073000 -0.045000 -0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_4" />
+    <child link="R_link_4_sphere0" />
+  </joint>
+  <link name="R_link_4_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_4_sphere1_joint" type="fixed">
+    <origin xyz="-0.073000 -0.075000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_4" />
+    <child link="R_link_4_sphere1" />
+  </joint>
+  <link name="R_link_5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint5" type="revolute">
+    <origin xyz="-0.074000 -0.039500 0.000025" rpy="-1.570796 1.570796 0.000000" />
+    <parent link="R_link_4" />
+    <child link="R_link_5" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570800" upper="1.570800" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_5_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_5_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 0.040000 0.039500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_5" />
+    <child link="R_link_5_sphere0" />
+  </joint>
+  <link name="R_link_5_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_5_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 0.010000 0.039500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_5" />
+    <child link="R_link_5_sphere1" />
+  </joint>
+  <link name="R_link_6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_joint6" type="revolute">
+    <origin xyz="0.000000 0.035300 0.039500" rpy="-1.570796 0.000000 0.000000" />
+    <parent link="R_link_5" />
+    <child link="R_link_6" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-2.094400" upper="2.094400" effort="30" velocity="10" />
+  </joint>
+  <link name="R_link_6_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere0_joint" type="fixed">
+    <origin xyz="-0.035000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere0" />
+  </joint>
+  <link name="R_link_6_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere1_joint" type="fixed">
+    <origin xyz="-0.023333 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere1" />
+  </joint>
+  <link name="R_link_6_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere2_joint" type="fixed">
+    <origin xyz="-0.011667 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere2" />
+  </joint>
+  <link name="R_link_6_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere3_joint" type="fixed">
+    <origin xyz="0.000000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere3" />
+  </joint>
+  <link name="R_link_6_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere4_joint" type="fixed">
+    <origin xyz="0.011667 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere4" />
+  </joint>
+  <link name="R_link_6_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere5_joint" type="fixed">
+    <origin xyz="0.023333 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere5" />
+  </joint>
+  <link name="R_link_6_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere6_joint" type="fixed">
+    <origin xyz="0.035000 0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere6" />
+  </joint>
+  <link name="R_link_6_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.025000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere7" />
+  </joint>
+  <link name="R_link_6_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.035000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere8" />
+  </joint>
+  <link name="R_link_6_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere9_joint" type="fixed">
+    <origin xyz="-0.035000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere9" />
+  </joint>
+  <link name="R_link_6_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere10_joint" type="fixed">
+    <origin xyz="-0.023333 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere10" />
+  </joint>
+  <link name="R_link_6_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere11_joint" type="fixed">
+    <origin xyz="-0.011667 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere11" />
+  </joint>
+  <link name="R_link_6_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere12" />
+  </joint>
+  <link name="R_link_6_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere13_joint" type="fixed">
+    <origin xyz="0.011667 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere13" />
+  </joint>
+  <link name="R_link_6_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere14_joint" type="fixed">
+    <origin xyz="0.023333 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere14" />
+  </joint>
+  <link name="R_link_6_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_link_6_sphere15_joint" type="fixed">
+    <origin xyz="0.035000 -0.039000 0.052000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_6_sphere15" />
+  </joint>
+  <link name="R_tcp">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_joint" type="fixed">
+    <origin xyz="0.000000 -0.044000 0.143500" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_tcp" />
+  </joint>
+  <link name="R_tcp_x">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_x_joint" type="fixed">
+    <origin xyz="0.250000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_x" />
+  </joint>
+  <link name="R_tcp_x_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_x_neg_joint" type="fixed">
+    <origin xyz="-0.250000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_x_neg" />
+  </joint>
+  <link name="R_tcp_y">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_y_joint" type="fixed">
+    <origin xyz="0.000000 0.250000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_y" />
+  </joint>
+  <link name="R_tcp_y_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_y_neg_joint" type="fixed">
+    <origin xyz="0.000000 -0.250000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_y_neg" />
+  </joint>
+  <link name="R_tcp_z">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_z_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 0.250000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_z" />
+  </joint>
+  <link name="R_tcp_z_neg">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_tcp_z_neg_joint" type="fixed">
+    <origin xyz="0.000000 0.000000 -0.250000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_tcp" />
+    <child link="R_tcp_z_neg" />
+  </joint>
+  <link name="R_link_left_finger">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_left_finger_fixed" type="fixed">
+    <origin xyz="-0.007000 0.039200 0.060500" rpy="0.000000 1.570796 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_left_finger" />
+  </joint>
+  <link name="R_lf_rot">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_fixed" type="fixed">
+    <origin xyz="0.000000 -0.039200 0.037000" rpy="-1.570796 -0.000000 1.570796" />
+    <parent link="R_link_left_finger" />
+    <child link="R_lf_rot" />
+  </joint>
+  <link name="R_lf_rot_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere0_joint" type="fixed">
+    <origin xyz="-0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere0" />
+  </joint>
+  <link name="R_lf_rot_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere1_joint" type="fixed">
+    <origin xyz="-0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere1" />
+  </joint>
+  <link name="R_lf_rot_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere2_joint" type="fixed">
+    <origin xyz="-0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere2" />
+  </joint>
+  <link name="R_lf_rot_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere3_joint" type="fixed">
+    <origin xyz="0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere3" />
+  </joint>
+  <link name="R_lf_rot_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere4_joint" type="fixed">
+    <origin xyz="0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere4" />
+  </joint>
+  <link name="R_lf_rot_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere5_joint" type="fixed">
+    <origin xyz="0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere5" />
+  </joint>
+  <link name="R_lf_rot_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere6_joint" type="fixed">
+    <origin xyz="-0.033793 -0.010000 0.046483" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere6" />
+  </joint>
+  <link name="R_lf_rot_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere7_joint" type="fixed">
+    <origin xyz="-0.026897 -0.010000 0.039241" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere7" />
+  </joint>
+  <link name="R_lf_rot_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere8_joint" type="fixed">
+    <origin xyz="-0.020000 -0.010000 0.032000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere8" />
+  </joint>
+  <link name="R_lf_rot_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_rot_sphere9_joint" type="fixed">
+    <origin xyz="-0.013103 -0.010000 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_rot_sphere9" />
+  </joint>
+  <link name="R_lf_down">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_fixed" type="fixed">
+    <origin xyz="-0.044000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_rot" />
+    <child link="R_lf_down" />
+  </joint>
+  <link name="R_lf_down_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 -0.021980 0.002198" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere0" />
+  </joint>
+  <link name="R_lf_down_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere1" />
+  </joint>
+  <link name="R_lf_down_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere2_joint" type="fixed">
+    <origin xyz="0.000000 -0.018020 0.021802" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere2" />
+  </joint>
+  <link name="R_lf_down_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere3_joint" type="fixed">
+    <origin xyz="0.005000 -0.015692 0.035938" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere3" />
+  </joint>
+  <link name="R_lf_down_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere4_joint" type="fixed">
+    <origin xyz="0.005000 -0.012308 0.044062" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere4" />
+  </joint>
+  <link name="R_lf_down_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere5_joint" type="fixed">
+    <origin xyz="0.005000 -0.008923 0.052185" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere5" />
+  </joint>
+  <link name="R_lf_down_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere6_joint" type="fixed">
+    <origin xyz="0.005000 -0.005538 0.060308" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere6" />
+  </joint>
+  <link name="R_lf_down_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.006000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere7" />
+  </joint>
+  <link name="R_lf_down_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.016000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere8" />
+  </joint>
+  <link name="R_lf_down_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere9_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.026000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere9" />
+  </joint>
+  <link name="R_lf_down_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere10_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.036000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere10" />
+  </joint>
+  <link name="R_lf_down_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere11_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.076000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere11" />
+  </joint>
+  <link name="R_lf_down_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.086000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere12" />
+  </joint>
+  <link name="R_lf_down_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere13_joint" type="fixed">
+    <origin xyz="0.020276 -0.002400 0.060060" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere13" />
+  </joint>
+  <link name="R_lf_down_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere14_joint" type="fixed">
+    <origin xyz="0.027000 -0.002400 0.053000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere14" />
+  </joint>
+  <link name="R_lf_down_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere15_joint" type="fixed">
+    <origin xyz="0.033724 -0.002400 0.045940" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere15" />
+  </joint>
+  <link name="R_lf_down_sphere16">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere16_joint" type="fixed">
+    <origin xyz="0.040448 -0.002400 0.038879" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere16" />
+  </joint>
+  <link name="R_lf_down_sphere17">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere17_joint" type="fixed">
+    <origin xyz="0.047172 -0.002400 0.031819" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere17" />
+  </joint>
+  <link name="R_lf_down_sphere18">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_lf_down_sphere18_joint" type="fixed">
+    <origin xyz="0.053897 -0.002400 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_lf_down" />
+    <child link="R_lf_down_sphere18" />
+  </joint>
+  <link name="R_link_right_finger">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_right_finger_fixed" type="fixed">
+    <origin xyz="0.007000 -0.039200 0.060500" rpy="0.000000 1.570796 0.000000" />
+    <parent link="R_link_6" />
+    <child link="R_link_right_finger" />
+  </joint>
+  <link name="R_rf_rot">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_fixed" type="fixed">
+    <origin xyz="0.000000 0.039200 -0.037000" rpy="1.570796 -0.000000 -1.570796" />
+    <parent link="R_link_right_finger" />
+    <child link="R_rf_rot" />
+  </joint>
+  <link name="R_rf_rot_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere0_joint" type="fixed">
+    <origin xyz="-0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere0" />
+  </joint>
+  <link name="R_rf_rot_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere1_joint" type="fixed">
+    <origin xyz="-0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere1" />
+  </joint>
+  <link name="R_rf_rot_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere2_joint" type="fixed">
+    <origin xyz="-0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere2" />
+  </joint>
+  <link name="R_rf_rot_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere3_joint" type="fixed">
+    <origin xyz="0.006000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere3" />
+  </joint>
+  <link name="R_rf_rot_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere4_joint" type="fixed">
+    <origin xyz="0.018000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere4" />
+  </joint>
+  <link name="R_rf_rot_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere5_joint" type="fixed">
+    <origin xyz="0.030000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere5" />
+  </joint>
+  <link name="R_rf_rot_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere6_joint" type="fixed">
+    <origin xyz="0.033793 -0.010000 0.046483" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere6" />
+  </joint>
+  <link name="R_rf_rot_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere7_joint" type="fixed">
+    <origin xyz="0.026897 -0.010000 0.039241" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere7" />
+  </joint>
+  <link name="R_rf_rot_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere8_joint" type="fixed">
+    <origin xyz="0.020000 -0.010000 0.032000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere8" />
+  </joint>
+  <link name="R_rf_rot_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_rot_sphere9_joint" type="fixed">
+    <origin xyz="0.013103 -0.010000 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_rot_sphere9" />
+  </joint>
+  <link name="R_rf_down">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_fixed" type="fixed">
+    <origin xyz="0.044000 0.000000 0.000000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_rot" />
+    <child link="R_rf_down" />
+  </joint>
+  <link name="R_rf_down_sphere0">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere0_joint" type="fixed">
+    <origin xyz="0.000000 -0.021980 0.002198" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere0" />
+  </joint>
+  <link name="R_rf_down_sphere1">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere1_joint" type="fixed">
+    <origin xyz="0.000000 -0.020000 0.012000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere1" />
+  </joint>
+  <link name="R_rf_down_sphere2">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere2_joint" type="fixed">
+    <origin xyz="0.000000 -0.018020 0.021802" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere2" />
+  </joint>
+  <link name="R_rf_down_sphere3">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere3_joint" type="fixed">
+    <origin xyz="0.005000 -0.015692 0.035938" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere3" />
+  </joint>
+  <link name="R_rf_down_sphere4">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere4_joint" type="fixed">
+    <origin xyz="0.005000 -0.012308 0.044062" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere4" />
+  </joint>
+  <link name="R_rf_down_sphere5">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere5_joint" type="fixed">
+    <origin xyz="0.005000 -0.008923 0.052185" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere5" />
+  </joint>
+  <link name="R_rf_down_sphere6">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere6_joint" type="fixed">
+    <origin xyz="0.005000 -0.005538 0.060308" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere6" />
+  </joint>
+  <link name="R_rf_down_sphere7">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere7_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.006000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere7" />
+  </joint>
+  <link name="R_rf_down_sphere8">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere8_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.016000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere8" />
+  </joint>
+  <link name="R_rf_down_sphere9">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere9_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.026000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere9" />
+  </joint>
+  <link name="R_rf_down_sphere10">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere10_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.036000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere10" />
+  </joint>
+  <link name="R_rf_down_sphere11">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere11_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.076000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere11" />
+  </joint>
+  <link name="R_rf_down_sphere12">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere12_joint" type="fixed">
+    <origin xyz="0.000000 -0.002400 0.086000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere12" />
+  </joint>
+  <link name="R_rf_down_sphere13">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere13_joint" type="fixed">
+    <origin xyz="-0.013552 -0.002400 0.067121" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere13" />
+  </joint>
+  <link name="R_rf_down_sphere14">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere14_joint" type="fixed">
+    <origin xyz="-0.020276 -0.002400 0.060060" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere14" />
+  </joint>
+  <link name="R_rf_down_sphere15">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere15_joint" type="fixed">
+    <origin xyz="-0.027000 -0.002400 0.053000" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere15" />
+  </joint>
+  <link name="R_rf_down_sphere16">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere16_joint" type="fixed">
+    <origin xyz="-0.033724 -0.002400 0.045940" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere16" />
+  </joint>
+  <link name="R_rf_down_sphere17">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere17_joint" type="fixed">
+    <origin xyz="-0.040448 -0.002400 0.038879" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere17" />
+  </joint>
+  <link name="R_rf_down_sphere18">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere18_joint" type="fixed">
+    <origin xyz="-0.047172 -0.002400 0.031819" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere18" />
+  </joint>
+  <link name="R_rf_down_sphere19">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="R_rf_down_sphere19_joint" type="fixed">
+    <origin xyz="-0.053897 -0.002400 0.024759" rpy="0.000000 -0.000000 0.000000" />
+    <parent link="R_rf_down" />
+    <child link="R_rf_down_sphere19" />
+  </joint>
+</robot>

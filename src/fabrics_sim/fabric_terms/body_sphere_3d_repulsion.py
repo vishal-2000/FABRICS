@@ -34,6 +34,7 @@ def collision_response(
     velocity_gate_offset: float,
     sphere_mesh_checked: wp.array(dtype=wp.int32, ndim=3),
     sphere_collision_matrix: wp.array(dtype=wp.int64, ndim=2),
+    sphere_world_mask: wp.array(dtype=wp.int32, ndim=1),
     # outputs
     signed_sphere_distance: wp.array(dtype=float, ndim=2),
     base_acceleration: wp.array(dtype=wp.vec3, ndim=2),
@@ -59,7 +60,8 @@ def collision_response(
     # If we haven't already queried the distance between the current body point and mesh, then do so
     # Checked if == 1
     # Not checked if == 0
-    if sphere_mesh_checked[batch_index, point_index, mesh_index] == 0:
+    # Spheres with a zero world mask skip the world meshes (they still take part in sphere pairs).
+    if sphere_world_mask[point_index] == 1 and sphere_mesh_checked[batch_index, point_index, mesh_index] == 0:
         # Immediately indicate that it's been checked
         wp.atomic_add(sphere_mesh_checked, batch_index, point_index, mesh_index, 1)
 
@@ -255,7 +257,8 @@ def eval_collision_response_func(point_positions, point_velocities, allocated_da
                   allocated_data['velocity_gate_sharpness'],
                   allocated_data['velocity_gate_offset'],
                   allocated_data['sphere_mesh_checked'],
-                  allocated_data['sphere_collision_matrix']
+                  allocated_data['sphere_collision_matrix'],
+                  allocated_data['sphere_world_mask']
                   ],
               outputs=[
                   allocated_data['signed_sphere_distance'],
@@ -327,11 +330,17 @@ class BaseFabricRepulsion():
         """
         Constructor.
         ------------------------------------------
-        :param params: dict of collision parameters and body point frame data
+        :param params: dict of collision parameters and body point frame data; optional
+                       ``world_collision_mask`` (list of n 0/1, default all 1) excludes spheres
+                       from world-mesh collision while keeping their sphere-pair collisions
         :param batch_size: int, size of batch
         :param sphere_radius: bxn Pytorch tensor, b is batch size, n is number of body spheres 
         :param collision_matrix: nxn Pytorch tensor, n is number of body spheres
         """
+        world_mask = params.get('world_collision_mask')
+        if world_mask is None:
+            world_mask = [1] * sphere_radius.shape[1]
+        assert len(world_mask) == sphere_radius.shape[1], "world_collision_mask needs one entry per sphere"
         # Some signals to calculate and maintain
         self._num_points = sphere_radius.shape[1]
         self._base_metric = None
@@ -359,6 +368,7 @@ class BaseFabricRepulsion():
               'velocity_gate_offset': params['velocity_gate_offset'],
               'sphere_mesh_checked': None,
               'sphere_collision_matrix': wp.torch.from_torch(collision_matrix),
+              'sphere_world_mask': wp.array([int(v) for v in world_mask], dtype=wp.int32, device=device),
               'signed_sphere_distance': wp.zeros(shape=(batch_size, self._num_points), dtype=float, device=device),
               'base_acceleration': wp.zeros(shape=(batch_size, self._num_points), dtype=wp.vec3, device=device),
               'metric': wp.zeros(shape=(batch_size, self._num_points * 3, self._num_points * 3), dtype=float, device=device),
